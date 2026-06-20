@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<game name="PyamotoPlusWii" version="1.0"
+      description="Redoing all the spritedatas">
+
+    <file name="spritedata"       path="spritedata.xml"       patch="true" />
+    <file name="spritecategories" path="categories.xml" patch="true" />
+    <file name="spritelistdata"   path="spritelistdata.txt"   patch="true" />
+    <file name="spriteresources"  path="spriteresources.xml"  patch="true" />
+    <folder name="sprites" path="sprites" patch="true" />
+    <file name="sprites" path="sprites.py" patch="true" />
+
+</game>
