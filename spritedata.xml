@@ -930,7 +930,7 @@
 		<value nybble="12" title="Swim Distance" catgory="behavior"/>
 	</sprite>
 	<sprite id="58" name="Grrrol (duplicate) [UNUSED]" />
-	<sprite id="59" name="Question Block / ? Block">
+	<sprite id="59" name="Path-controlled Question Block (Two-Way)">
 		<value nybble="3-4" title="Target ID [NSLU]*" comment="Activates this event ID if struck, *Only works in NSLU" category="behavior" />
 		<value nybble="5" title="Unknown Value 5" comment="No visible change " />
 		<value nybble="7" title="Unknown Value 7" />
@@ -966,7 +966,7 @@
 		</list>
 		<value nybble="21-22" title="Movement ID" comment="Known matched sprites: 70" id_type="movement" category="movement" />
 	</sprite>
-	<sprite id="60" name="Brick Block" notes="Just an ordinary brick block that can also be movement controlled.">
+	<sprite id="60" name="Path-controlled Brick Block (Two-Way)" notes="Just an ordinary brick block that can also be movement controlled.">
 		<value nybble="12" title="Unknown Value 12" />
 		<checkbox nybble="13" title="Spawn Acorn Mushroom" comment="If checked, it spawns an acorn mushroom." category="behavior" />
         <list nybble="19" title="Movement Type" comment="Specifies which movement controller to hook to." category="movement">
@@ -994,7 +994,7 @@
 		</list>
 		<value nybble="21-22" title="Movement ID" comment="Can match to 70 for sure." id_type="movement" category="movement" />
 	</sprite>
-    <sprite id="61" name="Invisible Item Block">
+    <sprite id="61" name="Path-controlled Invisible Item Block (Two-Way)">
 		<checkbox nybble="13" title="Spawns Acorn Mushroom" comment="When ticked, it spawns an acorn mushroom." category="behavior" />
 		<list nybble="19" title="Movement Type" comment="Specifies which movement controller to hook to." category="movement">
             <entry value="0">None / Path (100)</entry>
@@ -1294,7 +1294,7 @@
 		<value nybble="20" title="Height" comment="Height of the block. Value + 1." category="behavior" />
 		<value nybble="21-22" title="Movement ID" comment="The movement ID of the sprite. " id_type="movement" category="movement" />
 	</sprite>
-	<sprite id="72" name="Moving Acorn Plains Land Block" notes="Overworld-styled moving block of land. Needs to be hooked to a Two-Way Movement Controller (sprite 70) to show up ingame.">
+	<sprite id="72" name="Acorn Plains Land Block (Two-Way)" notes="Overworld-styled moving block of land. Needs to be hooked to a Two-Way Movement Controller (sprite 70) to show up ingame.">
 		<value nybble="18" title="Width" comment="Width of the block. Value + 1." category="behavior" />
 		<value nybble="20" title="Height" comment="Height of the block. Value + 1." category="behavior" />
 		<value nybble="21-22" title="Movement ID" comment="The movement ID of the sprite. " id_type="movement" category="movement" />
@@ -2111,7 +2111,7 @@
 			<entry value="11">Zoom alteration</entry>
 			<entry value="12">Zoom alteration</entry>
 		</list>
-		<list bit="61-63" title="Spinning Speed" comment="The spinning speed." category="behavior">
+		<list bit="62-64" title="Spinning Speed" comment="The spinning speed." category="behavior">
 			<entry value="4">Very Slow</entry>
 			<entry value="7">Slow</entry>
 			<entry value="0">Slow - Medium</entry>
@@ -3778,8 +3778,25 @@
 			<entry value="5">World 6 - Rock-Candy Mines</entry>
 		</list>
 	</sprite>
-	<sprite id="217" name="Movement-controlled Tower Block (NSMBW) [UNUSED]">
-		<value nybble="7" title="Tilt" category="behavior" />
+	<sprite id="217" name="Movement-controlled Tower Block (Two-Way) (NSMBW) [UNUSED]">
+		<list nybble="7" title="Tilt" comment="Counter-clockwise around the center of the platform." category="behavior">
+			<entry value="0">0°</entry>
+			<entry value="1">22.5°</entry>
+			<entry value="2">45°</entry>
+			<entry value="3">67.5°</entry>
+			<entry value="4">90°</entry>
+			<entry value="5">112.5°</entry>
+			<entry value="6">135°</entry>
+			<entry value="7">157.5°</entry>
+			<entry value="8">180°</entry>
+			<entry value="9">202.5°</entry>
+			<entry value="10">225°</entry>
+			<entry value="11">247.5°</entry>
+			<entry value="12">270°</entry>
+			<entry value="13">292.5°</entry>
+			<entry value="14">315°</entry>
+			<entry value="15">337.5°</entry>
+		</list>
 		<value nybble="18" title="Width" category="behavior" />
 		<value nybble="20" title="Height" category="behavior" />
 		<value nybble="21-22" title="Movement ID" comment="Attach this to a Sprite 70 to make it appear and move." id_type="movement" category="movement" />
@@ -3958,7 +3975,7 @@
 			<entry value="13">5x14</entry>
 		</list>
 	</sprite>
-	<sprite id="232" name="Lighting - Movement-controlled Glow Block">
+	<sprite id="232" name="Lighting Movement-controlled Glow Block">
 		<value nybble="1-2" title="Triggering Event ID 2" comment="Another event that can only be used if ID 1 is non-zero." id_type="event" category="events" />
 		<value nybble="3-4" title="Triggering Event ID 1" comment="See the comment for &quot;Type&quot; for an explanation." id_type="event" category="events" />
 		<checkbox nybble="6" title="Unknown Checkbox 6" />
@@ -4104,6 +4121,10 @@
 			<entry value="3">Stone Block (Pa0 tile #52) (Object #42)</entry>
 			<entry value="4">Wooden Block (Pa0 tile #51) (Object #41)</entry>
 			<entry value="5">Wooden Block (Pa0 tile #51) (Object #41)</entry>
+			<entry value="6">Pa1 tile #240</entry>
+			<entry value="7">Pa1 tile #4</entry>
+			<entry value="12">Same as 6</entry>
+			<entry value="13">Same as 7</entry>
 		</list>
 		<list nybble="10" title="Effect" comment="Determines the effect that is triggered when the event is activated. 'Destroy Tiles' can destroy all kinds of objects. It cannot destroy sprites. 'Spawns Tiles' will even create new tiles above other tiles or objects." category="behavior">
 			<entry value="0">Destroys Tiles</entry>
@@ -4401,7 +4422,7 @@
 		<checkbox nybble="11" title="Shift 1/2 tile down" mask="2" category="behavior" />
 		<checkbox nybble="12" title="Place behind other sprites" category="behavior" />
 	</sprite>
-	<sprite id="271" name="Movement-controlled Metal Bridge Platform" notes="A piece of the metal bridge platform. This is the actual bridge piece.">
+	<sprite id="271" name="Pivotal-rotation-controlled Metal Bridge Platform" notes="A piece of the metal bridge platform. This is the actual bridge piece.">
 		<value nybble="9" title="Unknown Value 9" />
 		<list nybble="10" title="Type" category="behavior">
 			<entry value="0">UNUSED</entry>
@@ -4411,14 +4432,14 @@
 		</list>
 		<value nybble="21-22" title="Movement ID" id_type="movement" category="movement" />
 	</sprite>
-	<sprite id="272" name="Movement-controlled Metal Bridge Stem" notes="A piece of the metal bridge. This is the step of the platform, that connects to the base.">
+	<sprite id="272" name="Pivotal-rotation-controlled Metal Bridge Stem" notes="A piece of the metal bridge. This is the step of the platform, that connects to the base.">
 		<list nybble="12" title="Type" category="behavior">
 			<entry value="0">UNUSED</entry>
 			<entry value="1">Stone Stem</entry>
 		</list>
 		<value nybble="21-22" title="Movement ID" id_type="movement" category="movement" />
 	</sprite>
-	<sprite id="273" name="Movement-controlled Metal Bridge Base" notes="A piece of the metal bridge. This is the base with the screw in the center. ">
+	<sprite id="273" name="Pivotal-rotation-controlled Metal Bridge Base" notes="A piece of the metal bridge. This is the base with the screw in the center. ">
 		<value nybble="9" title="Unknown Value 9" />
 		<value nybble="21-22" title="Movement ID" id_type="movement" category="movement" />
 	</sprite>
@@ -5168,7 +5189,7 @@
 		<value nybble="21-22" title="Movement ID" comment="Use this to assign this coin to a rotation movement controller." id_type="movement" category="movement" />
 		<value nybble="23-24" title="Coin ID" comment="Use this to assign to a ID specified by the controller." id_type="coin" category="behavior" />
 	</sprite>
-	<sprite id="327" name="Movement-controlled Hanging Sledge Block">
+	<sprite id="327" name="Pivotal-rotation-controlled Hanging Sledge Block">
 		<value nybble="6" title="Unknown Value 6" comment="Setting this to 1 seems to influence the movement." />
 		<value nybble="10" title="Unknown Value 10" />
 		<value nybble="20" title="Unknown Value 20" />
@@ -6179,7 +6200,7 @@
 		</list>
 		<value nybble="12" title="Height" comment="Value + 2" category="behavior" />
 	</sprite>
-	<sprite id="405" name="Multi-size platform - Two way - (CRASHES) [UNUSED]" notes="Multi-size platform with unknown purpose. Crashes because lift_zen_kumiawase.szs is missing.">
+	<sprite id="405" name="Multi-size platform - (Two way) - (CRASHES) [UNUSED]" notes="Multi-size platform with unknown purpose. Crashes because lift_zen_kumiawase.szs is missing.">
 		<list nybble="5" title="Direction Override" comment="Direction it moves" category="behavior">
             <entry value="0">Use ID</entry>
             <entry value="1">Right</entry>
@@ -6310,7 +6331,7 @@
 	<sprite id="428" name="Ludwig's Castle Platform Rail">
 		<value nybble="17-18" title="Length" comment="Value + 3." category="behavior" />
 	</sprite>
-	<sprite id="429" name="Giant Movement-controlled Metal Bar" notes="See 6-7 Shifting-Floor Cave and sprite 485.">
+	<sprite id="429" name="Giant Movement-controlled Metal Bar (Two-Way)" notes="See 6-7 Shifting-Floor Cave and sprite 485.">
 		<list nybble="5" title="Direction" category="behavior">
 			<entry value="0">Same as Movement Controller</entry>
 			<entry value="1">Movement Controller: Horizontal-&gt;Same, Up-&gt;Right, Down-&gt;Left</entry>
@@ -6321,17 +6342,59 @@
 		<value nybble="12" title="Type" comment="Valid values are 0 to 6." category="behavior" />
 		<value nybble="21-22" title="Movement ID" id_type="movement" category="movement" />
 	</sprite>
-	<sprite id="430" name="Line-controlled Iron Box [UNUSED]" notes="An iron box that you can control with a line controller. Only sprite 70 works with this sprite.">
-		<value nybble="17-18" title="Width" comment="Width of the platform." category="behavior" />
-		<value nybble="19-20" title="Height" comment="Height of the platform." category="behavior" />
-		<value nybble="21-22" title="Movement ID" comment="The ID you assign to sprite 70. (Line Controller.)" id_type="movement" category="movement" />
-	</sprite>
-	<sprite id="431" name="Movement-controlled Stone Block" notes="Only used in Morton's (W2) Castle.">
+	<sprite id="430" name="Movement-controlled Tiltable Iron Box (Two-Way) [UNUSED]" notes="An iron box that you can control with a line controller. Only sprite 70 works with this sprite.">
 		<value nybble="6" title="Unknown Value 6" />
-		<value nybble="12" title="Unknown Value 12" />
-		<value nybble="18" title="Width" comment="Value + 1" category="behavior" />
-		<value nybble="20" title="Height" comment="Value + 1" category="behavior" />
-		<value nybble="21-22" title="Movement ID" comment="Use this to give this block a movement. Can be paired with [70]. Maybe others as well." id_type="movement" category="movement" />
+		<list nybble="7" title="Tilt" category="behavior">
+			<entry value="0">0°</entry>
+			<entry value="1">22.5°</entry>
+			<entry value="2">45°</entry>
+			<entry value="3">67.5°</entry>
+			<entry value="4">90°</entry>
+			<entry value="5">112.5°</entry>
+			<entry value="6">135°</entry>
+			<entry value="7">157.5°</entry>
+			<entry value="8">180°</entry>
+			<entry value="9">202.5°</entry>
+			<entry value="10">225°</entry>
+			<entry value="11">247.5°</entry>
+			<entry value="12">270°</entry>
+			<entry value="13">292.5°</entry>
+			<entry value="14">315°</entry>
+			<entry value="15">337.5°</entry>
+		</list>
+		<value nybble="11" title="Unknown Value 11" />
+		<value nybble="12" title="Z-Order" comment="Higher Values = Further back. Use this if you use more than one of this sprites and they're overlapping." category="behavior" />
+		<value nybble="18" title="Width" category="behavior" />
+		<value nybble="20" title="Height" category="behavior" />
+		<value nybble="21-22" title="Movement ID" comment="Use this to make other sprites move along with the platform." id_type="movement" category="movement" />
+		<checkbox nybble="23" title="Don't move" category="movement"/>
+	</sprite>
+	<sprite id="431" name="Movement-controlled Tiltable Stone Block (Two-Way)" notes="Only used in Morton's (W2) Castle.">
+		<value nybble="6" title="Unknown Value 6" />
+		<list nybble="7" title="Tilt" category="behavior">
+			<entry value="0">0°</entry>
+			<entry value="1">22.5°</entry>
+			<entry value="2">45°</entry>
+			<entry value="3">67.5°</entry>
+			<entry value="4">90°</entry>
+			<entry value="5">112.5°</entry>
+			<entry value="6">135°</entry>
+			<entry value="7">157.5°</entry>
+			<entry value="8">180°</entry>
+			<entry value="9">202.5°</entry>
+			<entry value="10">225°</entry>
+			<entry value="11">247.5°</entry>
+			<entry value="12">270°</entry>
+			<entry value="13">292.5°</entry>
+			<entry value="14">315°</entry>
+			<entry value="15">337.5°</entry>
+		</list>
+		<value nybble="11" title="Unknown Value 11" />
+		<value nybble="12" title="Z-Order" comment="Higher Values = Further back. Use this if you use more than one of this sprites and they're overlapping." category="behavior" />
+		<value nybble="18" title="Width" category="behavior" />
+		<value nybble="20" title="Height" category="behavior" />
+		<value nybble="21-22" title="Movement ID" comment="Use this to make other sprites move along with the platform." id_type="movement" category="movement" />
+		<checkbox nybble="23" title="Don't move" category="movement"/>
 	</sprite>
 	<sprite id="432" name="Bowser Jr. Controller">
 		<value nybble="10" title="Entrance id" id_type="entrance" category="behavior" />
@@ -6929,7 +6992,7 @@
 		<value nybble="19-20" title="Ordering ID" comment="This value specifies the order which the controllers activates. Almost always starts with order ID 1." id_type="ordering" category="behavior" />
 		<value nybble="21-22" title="Movement ID" comment="Use this to match sprites to the rotation movement." id_type="movement" category="movement" />
 	</sprite>
-	<sprite id="485" name="Giant Movement-controlled Metal Bar Gearbox" notes="See 6-7 Shifting-Floor Cave. Used with 429. This sprite does not physically move, but has gears that animate when its &quot;position&quot; changes.">
+	<sprite id="485" name="Giant Movement-controlled Metal Bar Gearbox (Two-Way)" notes="See 6-7 Shifting-Floor Cave. Used with 429. This sprite does not physically move, but has gears that animate when its &quot;position&quot; changes.">
 		<list nybble="5" title="Gear Rotation Direction" comment="Right and Up = Counter-Clockwise, Left and Down = Clockwise" category="behavior">
 			<entry value="0">Same as Movement Controller</entry>
 			<entry value="1">Movement Controller: Horizontal-&gt;Same, Up-&gt;Right, Down-&gt;Left</entry>
@@ -7083,7 +7146,7 @@
 		</list>
 		<value nybble="17-18" title="Count" comment="The amount of coins this sprite spawns. The amounts of coins for 0, 1 and 2 are 10, 3 and 2, respectively. For other values n, the amount of coins is n+1. If the amount of coins is odd, the left trail contains one coin more than the right trail." category="behavior" />
 	</sprite>
-	<sprite id="499" name="Moving Acorn Plains Semi-solid Land Block" notes="Needs to be hooked to a Two-Way Movement Controller (sprite 70) to show up ingame.">
+	<sprite id="499" name="Acorn Plains Semi-solid Land Block (Two-Way)" notes="Needs to be hooked to a Two-Way Movement Controller (sprite 70) to show up ingame.">
 		<value nybble="6" title="Unknown Value 6" />
 		<list nybble="7" title="Rotation" category="behavior">
 			<entry value="0">0°</entry>
@@ -7235,7 +7298,7 @@
     </sprite>
 	<sprite id="513" name="Pipe Joint" />
 	<sprite id="514" name="Mini Pipe Joint" />
-	<sprite id="515" name="Movement-controlled Castle Platform" notes="A vertically moving platform which looks like the normal Castle (Lava) tileset.">
+	<sprite id="515" name="Movement-controlled Castle Platform (Two-Way)" notes="A vertically moving platform which looks like the normal Castle (Lava) tileset.">
 		<list nybble="12" title="Width" comment="The horizontal length the platform is." category="behavior">
 			<entry value="0">5 Blocks</entry>
 			<entry value="1">7 Blocks</entry>
@@ -7312,7 +7375,7 @@
 			<entry value="1">Right</entry>
 		</list>
 	</sprite>
-	<sprite id="524" name="Movement-controlled Tower Block">
+	<sprite id="524" name="Movement-controlled Tower Block (Two-Way)">
 		<value nybble="12" title="Unknown Value 12" />
 		<value nybble="21-22" title="Movement ID" comment="Use this to match this sprite to a movement controller (always 70?)." id_type="movement" category="movement" />
 	</sprite>
@@ -7483,7 +7546,7 @@
 		<value nybble="18" title="Platform length" category="behavior" />
 		<value nybble="20" title="Stem length" category="behavior" />
 	</sprite>
-	<sprite id="542" name="Bouncy Movement-controlled Mushroom Platform [UNUSED]" notes="Seems to not include the stem, which makes the movement-controlled properties of it... useless?">
+	<sprite id="542" name="Bouncy Movement-controlled Mushroom Platform (Two-Way) [UNUSED]" notes="Seems to not include the stem, which makes the movement-controlled properties of it... useless?">
 		<list nybble="10" title="Color" category="behavior">
 			<entry value="0">Orange if skinny - Red if thick</entry>
 			<entry value="1">Green if skinny - Blue if thick</entry>
@@ -7565,7 +7628,7 @@
 		</list>
 	</sprite>
 	<sprite id="548" name="&quot;Block that appears in the light&quot; [UNUSED]" notes="Apparently spawns a challenge block..?&#13;&#10;Really has no real use." />
-	<sprite id="549" name="Movement-controlled Desert Block" notes="A desert block that can move.">
+	<sprite id="549" name="Movement-controlled Desert Block (Two-Way)" notes="A desert block that can move.">
 		<value nybble="18" title="Width (Useless)" />
 		<value nybble="20" title="Height (Useless)" />
 		<value nybble="22" title="Movement ID" comment="Match this to a Two-Way movement controller (sprite 70)." id_type="movement" category="movement" />
@@ -7695,8 +7758,32 @@
 		<value nybble="18" title="Width" category="behavior" />
 		<value nybble="20" title="Height" category="behavior" />
 	</sprite>
-	<sprite id="563" name="Movement-controlled Tile Platform [UNUSED]">
-		<value nybble="21-22" title="Movement ID" comment="Link this sprite to a Two-Way movement controller (sprite 70)" id_type="movement" category="movement" />
+	<sprite id="563" name="Movement-controlled World 7 Tileset Platform (Two-Way) [UNUSED]">
+		<value nybble="6" title="Unknown Value 6" />
+		<list nybble="7" title="Tilt" category="behavior">
+			<entry value="0">0°</entry>
+			<entry value="1">22.5°</entry>
+			<entry value="2">45°</entry>
+			<entry value="3">67.5°</entry>
+			<entry value="4">90°</entry>
+			<entry value="5">112.5°</entry>
+			<entry value="6">135°</entry>
+			<entry value="7">157.5°</entry>
+			<entry value="8">180°</entry>
+			<entry value="9">202.5°</entry>
+			<entry value="10">225°</entry>
+			<entry value="11">247.5°</entry>
+			<entry value="12">270°</entry>
+			<entry value="13">292.5°</entry>
+			<entry value="14">315°</entry>
+			<entry value="15">337.5°</entry>
+		</list>
+		<value nybble="11" title="Unknown Value 11" />
+		<value nybble="12" title="Z-Order" comment="Higher Values = Further back. Use this if you use more than one of this sprites and they're overlapping." category="behavior" />
+		<value nybble="18" title="Width" category="behavior" />
+		<value nybble="20" title="Height" category="behavior" />
+		<value nybble="21-22" title="Movement ID" comment="Use this to make other sprites move along with the platform." id_type="movement" category="movement" />
+		<checkbox nybble="23" title="Don't move" category="movement"/>
 	</sprite>
 	<sprite id="564" name="Flower/Grass Type Setter" notes="This sprite changes the type of flowers that are used in the zone. If this sprite is not present in the zone, the standard flowers are used.">
 		<list nybble="12" title="Type" category="behavior">
@@ -8164,7 +8251,7 @@
 		<value nybble="21-22" title="Bolt ID" comment="Use this ID to assign the sprite to a bolt." id_type="movement" category="movement" />
 	</sprite>
 	<sprite id="626" name="Stationary Sumo Bro. - NSLU" />
-    <sprite id="627" name="Movement-controlled Bone Platform - NSLU" notes="Platform falls when Bowser Jr.'s clown car hits it. Used with sprite 70 (Two-Way), but it might be able to pair with other controllers as well...">
+    <sprite id="627" name="Movement-controlled Bone Platform (Two-Way) - NSLU" notes="Platform falls when Bowser Jr.'s clown car hits it. Used with sprite 70 (Two-Way), but it might be able to pair with other controllers as well...">
         <value nybble="18" title="Width" comment="Value + 1" />
         <value nybble="21-22" title="Movement ID" id_type="movement" category="movement" />
     </sprite>
@@ -8262,7 +8349,7 @@
 	<sprite id="641" name="Chain Chomp - NSLU">
 		<value nybble="12" title="Unknown Value 12" />
 	</sprite>
-	<sprite id="642" name="Movement controller - Two-Way - NSLU">
+	<sprite id="642" name="Movement controller - Event-activated Two-Way - NSLU">
 		<value nybble="3-4" title="Triggering Event ID" id_type="event" category="events" />
 		<checkbox nybble="6" title="Slower Acceleration" category="behavior" />
 		<value nybble="7" title="Unknown Value 7" />
@@ -8288,7 +8375,7 @@
 		<value nybble="17" title="Unknown Value 17" />
 		<value nybble="18" title="Useless" comment="Used by Nintendo, but ignored by the game" />
 		<value nybble="20" title="Useless 2" comment="Used by Nintendo, but ignored by the game" />
-		<value nybble="21-22" title="Movement ID" id_type="movement" category="movement" />
+		<value nybble="21-22" title="Movement ID" comment="Seems to only work with sprite 669" id_type="movement" category="movement" />
 	</sprite>
 	<sprite id="643" name="Lava Bubble - NSLU">
 		<list nybble="8" title="Initial Direction" category="movement">
@@ -8352,7 +8439,7 @@
 	<sprite id="647" name="Upside-Down Banzai Bill Blaster with Luigi Emblem - NSLU (+) [UNUSED]" notes="An upside down Banzai Bill launcher. Has a Luigi logo on the cannon. (+) The initial state flag is usable. IF set to 1, the blaster will transform into a bill." />
 	<sprite id="648" name="Bull's-Eye Banzai Bill Blaster with Luigi Emblem - NSLU (+) [UNUSED]" notes="Shoots Homing Banzai Bills. Also has a Luigi logo on the cannon. Shoots bills facing the player. (+) The initial state flag is usable. IF set to 1, the blaster will transform into a bill." />
 	<sprite id="649" name="Upside-Down Bull's-Eye Banzai Bill Blaster with Luigi Emblem - NSLU (+) [UNUSED]" notes="An upside down Homing Banzai Bill launcher. Has a Luigi logo on the cannon. Shoots bills facing the player. (+) The initial state flag is usable. IF set to 1, the blaster will transform into a bill." />
-	<sprite id="650" name="Movement-controlled Star Coin - NSLU">
+	<sprite id="650" name="Pivotal-rotation-controlled Star Coin - NSLU">
 		<list nybble="9" title="Star coin number" category="behavior">
 			<entry value="0">First star coin</entry>
 			<entry value="1">Second star coin</entry>
@@ -8506,12 +8593,18 @@
 		<value nybble="9" title="Unknown Value 9" />
 		<checkbox nybble="12" title="Shift 1/2 block to the right" comment="This shifts the coin ring 1/2 block to the right." category="behavior" />
 	</sprite>
-	<sprite id="663" name="Movement-controlled Coin - NSLU">
-		<value nybble="21-22" title="Movement ID" id_type="movement" category="movement" />
-		<value nybble="24" title="Unknown Value 24" />
+	<sprite id="663" name="Coin - NSLU">
+		<list nybble="19" title="Movement Type" comment="Value 8 is used all over 6-23, but with no movement-controller attached." category="behavior">
+            <entry value="0">None / Path (100)</entry>
+            <entry value="1">Two-Way (70, 642)</entry>
+            <entry value="8">Clapping controller (?)</entry>
+            <entry value="15">Drop to ground when loaded</entry>
+		</list>
+		<value nybble="21-22" title="Movement ID" comment="Can match to 70 for sure." id_type="movement" category="movement" />
+		<value nybble="24" title="Unknown Value 24"/>
 	</sprite>
 	<sprite id="664" name="Sun Gleam &amp; Bubble Underwater Effect - NSLU" />
-	<sprite id="665" name="Movement-controlled Star Coin - NSLU" notes="Might have a hidden nybble for star coin number (probably nybble 6).">
+	<sprite id="665" name="Pivotal-rotation-controlled Star Coin (2) - NSLU" notes="Might have a hidden nybble for star coin number (probably nybble 6).">
 		<value nybble="1" title="Unknown Value 19" />
 		<value nybble="20" title="Unknown Value 20" />
 		<value nybble="21-22" title="Movement ID" id_type="movement" category="movement" />
@@ -8544,9 +8637,9 @@
 		<value nybble="17" title="Unknown Value 17" comment="Always 15" />
 		<value nybble="18" title="Unknown Value 18" comment="Always 15" />
 	</sprite>
-	<sprite id="669" name="Movement-controlled Tower Block - NSLU">
+	<sprite id="669" name="Movement-controlled Tower Block (Event-activated Two-Way) - NSLU">
 		<value nybble="11" title="Unknown Value 11" />
-		<value nybble="21-22" title="Movement ID" id_type="movement" category="movement" />
+		<value nybble="21-22" title="Movement ID" comment="Seems to only work with sprite 642" id_type="movement" category="movement" />
 	</sprite>
 	<sprite id="670" name="Minigame Manager - NSLU [UNUSED]" />
 	<sprite id="671" name="Grrrol Passage - NSLU" notes="A rusty platform, with an end broken. The end that is broken is defined by a setting.">
@@ -8581,7 +8674,7 @@
 		<value nybble="18" title="Width" comment="Determines the width of the area that is affected." category="behavior" />
 		<value nybble="20" title="Height" comment="Determines the height of the area that is affected." category="behavior" />
 	</sprite>
-	<sprite id="674" name="Movement-controlled Lava Land Block - NSLU" notes="Lava themed">
+	<sprite id="674" name="Path-controlled Lava Land Block - NSLU" notes="Lava themed">
 		<value nybble="10" title="Type" category="behavior" />
 		<value nybble="21-22" title="Movement ID" id_type="movement" category="movement" />
 	</sprite>
@@ -8997,7 +9090,7 @@
 		<value nybble="21-22" title="Movement ID" comment="Use this to attach a sprite to a movement controller." id_type="movement" category="movement" />
 	</sprite>
 	<sprite id="708" name="Autoscrolling Player Effect (?)- NSLU" notes="This sprite sets a flag on player actors, and deletes itself. It is still unknown what this flag does." />
-	<sprite id="709" name="Movement-controlled Metal Castle Block - NSLU">
+	<sprite id="709" name="Pivotal-rotation-controlled Metal Castle Block - NSLU">
 		<value nybble="18" title="Width" comment="Value + 2 blocks. Maybe 2 nybbles..." category="behavior" />
 		<value nybble="20" title="Height" comment="Value + 2 blocks. Maybe 2 nybbles..." category="behavior" />
 		<value nybble="21-22" title="Movement ID" id_type="movement" category="movement" />
